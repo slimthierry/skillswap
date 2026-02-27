@@ -1,0 +1,17 @@
+export { apiClient, configureAuth } from './client';
+export { authApi } from './endpoints/auth';
+export { usersApi } from './endpoints/users';
+export { skillsApi } from './endpoints/skills';
+export { sessionsApi } from './endpoints/sessions';
+export { reviewsApi } from './endpoints/reviews';
+export { matchingApi } from './endpoints/matching';
+export { dashboardApi } from './endpoints/dashboard';
+export { transactionsApi } from './endpoints/transactions';
+export { useLogin, useRegister, useCurrentUser } from './hooks/useAuth';
+export { useUserProfile, useUpdateProfile, useSearchUsers } from './hooks/useUsers';
+export { useSkillCategories, useSkills, useBrowseSkills, useAddOfferedSkill, useAddWantedSkill, useRemoveOfferedSkill, useRemoveWantedSkill } from './hooks/useSkills';
+export { useMySessions, useUpcomingSessions, useBookSession, useConfirmSession, useCompleteSession, useCancelSession } from './hooks/useSessions';
+export { useUserReviews, useCreateReview } from './hooks/useReviews';
+export { useMatches, useMutualMatches } from './hooks/useMatching';
+export { useDashboard, useCommunityStats, useSkillMap, useTopTeachers } from './hooks/useDashboard';
+export { useBalance, useTransactionHistory } from './hooks/useTransactions';
