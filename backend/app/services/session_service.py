@@ -8,7 +8,7 @@ from sqlalchemy import and_, or_, select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
-from app.core.exceptions import SessionConflictError
+from app.auth.exceptions import SessionConflictError
 from app.models.session_models import Session, SessionStatus
 from app.models.user_models import User
 from app.models.transaction_models import TimeTransaction, TransactionType

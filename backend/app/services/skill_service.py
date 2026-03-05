@@ -8,7 +8,7 @@ from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
-from app.core.exceptions import SkillNotFoundError
+from app.auth.exceptions import SkillNotFoundError
 from app.models.skill_models import (
     Skill,
     SkillCategory,

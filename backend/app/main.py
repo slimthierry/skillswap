@@ -6,14 +6,13 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import select
 
-from app.api.v1 import router as api_router
+from app.loggers import setup_logging
+from app.routes import app_router
 from app.config.database import async_session_factory, engine
 from app.config.settings import settings
 from app.models.base import Base
 from app.models.skill_models import Skill, SkillCategory
 from app.utils.skill_categories import DEFAULT_CATEGORIES, DEFAULT_SKILLS
-
-
 async def seed_default_skills() -> None:
     """Seed default skill categories and skills if they don't exist."""
     async with async_session_factory() as db:
@@ -40,8 +39,6 @@ async def seed_default_skills() -> None:
                 db.add(skill)
 
         await db.commit()
-
-
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application lifespan: create tables and seed data on startup."""
@@ -50,8 +47,6 @@ async def lifespan(app: FastAPI):
     await seed_default_skills()
     yield
     await engine.dispose()
-
-
 app = FastAPI(
     title="SkillSwap API",
     description="Peer-to-peer skill exchange platform with time-banking",
@@ -70,8 +65,6 @@ app.add_middleware(
 
 # Include API routes
 app.include_router(api_router)
-
-
 @app.get("/health")
 async def health_check():
     """Health check endpoint."""

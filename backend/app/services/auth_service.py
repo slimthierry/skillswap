@@ -7,7 +7,7 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.config.settings import settings
-from app.core.security import create_access_token, hash_password, verify_password
+from app.auth.security import create_access_token, hash_password, verify_password
 from app.models.user_models import User
 from app.models.transaction_models import TimeTransaction, TransactionType
 from app.schemas.auth_schemas import LoginRequest, RegisterRequest, TokenResponse

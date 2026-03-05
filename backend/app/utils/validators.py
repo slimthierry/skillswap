@@ -5,7 +5,7 @@ from datetime import datetime, timezone
 
 from fastapi import HTTPException, status
 
-from app.core.exceptions import InsufficientCreditsError, SessionConflictError
+from app.auth.exceptions import InsufficientCreditsError, SessionConflictError
 
 
 def validate_session_time(scheduled_at: datetime) -> None:
